@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 using System;
-using TodoAppOne.Model;
+using AppOne.Model;
 
-namespace TodoAppOne.Controllers
+namespace AppOne.Controllers
 {
     [ApiController]
     [Route("[controller]")]
@@ -23,7 +23,7 @@ namespace TodoAppOne.Controllers
         {
             if (_memoryCache.TryGetValue(usersKey, out object list))
                 return Ok(list);
-            return null;
+            return Ok();
         }
         [HttpPost]
         [Route("AddUser")]
