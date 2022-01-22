@@ -20,6 +20,7 @@ namespace App.Ocelot
                 config.SetBasePath(host.HostingEnvironment.ContentRootPath);
                 var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
                 config.AddJsonFile($"appsettings.json", optional: true, reloadOnChange: true);
+                config.AddJsonFile($"appsettings.{env}.json", true, true);
                 config.AddJsonFile($"ocelot.{env}.json", true, true);
                 config.AddEnvironmentVariables();
             })
