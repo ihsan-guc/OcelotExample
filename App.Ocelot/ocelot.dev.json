@@ -1,0 +1,55 @@
+﻿{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/user/GetUserList",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        }
+      ],
+      "UpstreamPathTemplate": "/appone/user/userList",
+      "UpstreamHttpMethod": [ "GET" ],
+      "SwaggerKey": "appone"
+    },
+    {
+      "DownstreamPathTemplate": "/WeatherForecast",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5011
+        }
+      ],
+      "UpstreamPathTemplate": "/apptwo/WeatherForecast",
+      "UpstreamHttpMethod": [ "GET" ],
+      "SwaggerKey": "apptwo"
+    }
+  ],
+  "SwaggerEndPoints": [
+    {
+      "Key": "appone",
+      "Config": [
+        {
+          "Name": "App One Api",
+          "Version": "v1",
+          "Url": "https://localhost:5001/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "apptwo",
+      "Config": [
+        {
+          "Name": "App Two Api",
+          "Version": "v1",
+          "Url": "https://localhost:5011/swagger/v1/swagger.json"
+        }
+      ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:4001"
+  }
+}

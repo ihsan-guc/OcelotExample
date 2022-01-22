@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppOne", "AppOne\AppOne.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppTwo", "AppTwo\AppTwo.csproj", "{91A9664F-111D-43AF-A913-7C7BD87671BC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Ocelot", "App.Ocelot\App.Ocelot.csproj", "{CDD9B1F8-0700-43CE-BAC4-436939C7D5AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{91A9664F-111D-43AF-A913-7C7BD87671BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91A9664F-111D-43AF-A913-7C7BD87671BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91A9664F-111D-43AF-A913-7C7BD87671BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDD9B1F8-0700-43CE-BAC4-436939C7D5AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDD9B1F8-0700-43CE-BAC4-436939C7D5AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDD9B1F8-0700-43CE-BAC4-436939C7D5AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDD9B1F8-0700-43CE-BAC4-436939C7D5AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

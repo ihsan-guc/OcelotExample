@@ -57,16 +57,22 @@ namespace AppOne
             {
                 app.UseDeveloperExceptionPage();
             }
+
             app.UseSwagger();
             app.UseSwaggerUI(p =>
             {
                 p.SwaggerEndpoint("/swagger/v1/swagger.json", "API One V1");
-                p.DefaultModelsExpandDepth(-1); // Model Durumlarının gösterilmesini istemiyoruz.
+                p.DefaultModelsExpandDepth(-1);
+                //p.RoutePrefix = string.Empty;
             });
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
+            app.UseCors(p => p.AllowAnyMethod().AllowAnyHeader().SetIsOriginAllowed(origin => true).AllowCredentials());
+
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

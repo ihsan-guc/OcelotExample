@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AppOne.Model;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 using System;
-using AppOne.Model;
+using System.Collections.Generic;
 
 namespace AppOne.Controllers
 {
@@ -27,18 +28,18 @@ namespace AppOne.Controllers
         }
         [HttpPost]
         [Route("AddUser")]
-        public IActionResult AddUser(UserDTO userDTO)
+        public IActionResult AddUser(List<UserDTO> userDTO)
         {
             _memoryCache.Set(usersKey, userDTO, new MemoryCacheEntryOptions
             {
-                AbsoluteExpiration = DateTime.Now.AddSeconds(20),
+                AbsoluteExpiration = DateTime.Now.AddDays(1),
                 Priority = CacheItemPriority.Normal
             });
             return Ok(userDTO);
         }
-        [HttpPost]
+        [HttpDelete]
         [Route("RemoveUser")]
-        public IActionResult RemoveUser(UserDTO userDTO)
+        public IActionResult RemoveUser()
         {
             _memoryCache.Remove(usersKey);
             return Ok();
