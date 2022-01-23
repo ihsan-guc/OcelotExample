@@ -62,8 +62,7 @@ namespace AppOne
             app.UseSwaggerUI(p =>
             {
                 p.SwaggerEndpoint("/swagger/v1/swagger.json", "API One V1");
-                p.DefaultModelsExpandDepth(-1);
-                //p.RoutePrefix = string.Empty;
+                p.DefaultModelsExpandDepth(-1);  // Model detaylarının gösterilmesini istemiyoruz.
             });
 
             app.UseHttpsRedirection();

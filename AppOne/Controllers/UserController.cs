@@ -1,8 +1,7 @@
 ﻿using AppOne.Model;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Caching.Memory;
-using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AppOne.Controllers
 {
@@ -10,39 +9,33 @@ namespace AppOne.Controllers
     [Route("[controller]")]
     public class UserController : ControllerBase
     {
-        IMemoryCache _memoryCache;
-        const string usersKey = "users";
+        List<User> userList = UserModel.userList;
 
-        public UserController(IMemoryCache memoryCache)
+        [HttpGet]
+        [Route("GetUser")]
+        public IActionResult GetUser(int id)
         {
-            _memoryCache = memoryCache;
+            return Ok(userList.FirstOrDefault(p => p.Id == id));
         }
-
         [HttpGet]
         [Route("GetUserList")]
         public IActionResult GetUserList()
         {
-            if (_memoryCache.TryGetValue(usersKey, out object list))
-                return Ok(list);
-            return Ok();
+            return Ok(userList);
         }
         [HttpPost]
         [Route("AddUser")]
-        public IActionResult AddUser(List<UserDTO> userDTO)
+        public IActionResult AddUser(UserDTO userDTO)
         {
-            _memoryCache.Set(usersKey, userDTO, new MemoryCacheEntryOptions
+            var user = new User()
             {
-                AbsoluteExpiration = DateTime.Now.AddDays(1),
-                Priority = CacheItemPriority.Normal
-            });
-            return Ok(userDTO);
-        }
-        [HttpDelete]
-        [Route("RemoveUser")]
-        public IActionResult RemoveUser()
-        {
-            _memoryCache.Remove(usersKey);
-            return Ok();
+                Description = userDTO.Description,
+                Firstname = userDTO.Firstname,
+                Lastname = userDTO.Lastname,
+                Id = userList.Count()
+            };
+            userList.Add(user);
+            return Ok(userList);
         }
     }
 }

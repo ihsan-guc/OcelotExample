@@ -13,9 +13,8 @@ namespace App.Ocelot
             CreateHostBuilder(args).Build().Run();
         }
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-            .ConfigureAppConfiguration((host, config) =>
+        public static IHostBuilder CreateHostBuilder(string[] args) => 
+            Host.CreateDefaultBuilder(args).ConfigureAppConfiguration((host, config) =>
             {
                 config.SetBasePath(host.HostingEnvironment.ContentRootPath);
                 var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");

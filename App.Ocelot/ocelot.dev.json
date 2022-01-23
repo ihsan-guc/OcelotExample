@@ -14,6 +14,32 @@
       "SwaggerKey": "appone"
     },
     {
+      "DownstreamPathTemplate": "/user/AddUser",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        }
+      ],
+      "UpstreamPathTemplate": "/appone/user/AddUser",
+      "UpstreamHttpMethod": [ "POST" ],
+      "SwaggerKey": "appone"
+    },
+    {
+      "DownstreamPathTemplate": "/user/GetUser",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        }
+      ],
+      "UpstreamPathTemplate": "/appone/user/GetUser/{id}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "SwaggerKey": "appone"
+    },
+    {
       "DownstreamPathTemplate": "/WeatherForecast",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [

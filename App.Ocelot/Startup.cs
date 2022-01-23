@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -43,10 +43,11 @@ namespace App.Ocelot
 
             app.UseAuthentication();
 
-            app.UseSwaggerForOcelotUI(opt => {
+            app.UseSwaggerForOcelotUI(opt =>
+            {
                 opt.DownstreamSwaggerEndPointBasePath = "/swagger/docs";
                 opt.PathToSwaggerGenerator = "/swagger/docs";
-                opt.DefaultModelsExpandDepth(-1);
+                opt.DefaultModelsExpandDepth(-1);// Model detaylarının gösterilmesini istemiyoruz.
             });
 
             app.UseEndpoints(endpoints =>

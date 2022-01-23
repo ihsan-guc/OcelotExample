@@ -26,7 +26,6 @@ namespace AppTwo
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API Two", Version = "v1" });
             });
         }
-
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -38,7 +37,7 @@ namespace AppTwo
             app.UseSwaggerUI(p =>
             {
                 p.SwaggerEndpoint("/swagger/v1/swagger.json", "API Two V1");
-                p.DefaultModelsExpandDepth(-1); // Model Durumlarının gösterilmesini istemiyoruz.
+                p.DefaultModelsExpandDepth(-1); // Model detaylarının gösterilmesini istemiyoruz.
             });
             app.UseHttpsRedirection();
 
