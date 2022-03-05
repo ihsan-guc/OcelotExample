@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  apptwo:
+    image: ${DOCKER_REGISTRY-}apptwo
+    build:
+      context: .
+      dockerfile: AppTwo/Dockerfile
+  appone:
+    image: ${DOCKER_REGISTRY-}appone
+    build:
+      context: .
+      dockerfile: AppOne/Dockerfile

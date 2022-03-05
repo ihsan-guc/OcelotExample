@@ -5,9 +5,11 @@ VisualStudioVersion = 16.0.32106.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppOne", "AppOne\AppOne.csproj", "{42A24E75-06FB-438C-8715-FA2D61D479B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppTwo", "AppTwo\AppTwo.csproj", "{91A9664F-111D-43AF-A913-7C7BD87671BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppTwo", "AppTwo\AppTwo.csproj", "{91A9664F-111D-43AF-A913-7C7BD87671BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Ocelot", "App.Ocelot\App.Ocelot.csproj", "{CDD9B1F8-0700-43CE-BAC4-436939C7D5AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Ocelot", "App.Ocelot\App.Ocelot.csproj", "{CDD9B1F8-0700-43CE-BAC4-436939C7D5AB}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{2867E05B-2E8E-42E9-AA99-C83425288EFE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{CDD9B1F8-0700-43CE-BAC4-436939C7D5AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CDD9B1F8-0700-43CE-BAC4-436939C7D5AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CDD9B1F8-0700-43CE-BAC4-436939C7D5AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2867E05B-2E8E-42E9-AA99-C83425288EFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2867E05B-2E8E-42E9-AA99-C83425288EFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2867E05B-2E8E-42E9-AA99-C83425288EFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2867E05B-2E8E-42E9-AA99-C83425288EFE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
