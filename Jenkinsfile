@@ -19,7 +19,7 @@ pipeline {
             steps {
                  echo "Testting"
                 sh "docker context use default"
-                sh "docker context use default"
+                sh "docker-compose down"
             }
         }
         stage("build") {
