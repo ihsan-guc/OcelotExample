@@ -6,10 +6,20 @@ pipeline {
     }
     agent any 
     stages {
+         
+        stage("tooling version") {
+            steps {
+                sh ''' 
+                    docker --version
+                    docker-compose version
+                '''
+            }
+        } 
         stage("init") {
             steps {
-                sh "docker-compose -f ${env.COMPOSE_FILE} build"
-                echo "Testting"
+                 echo "Testting"
+                sh "docker context use default"
+                sh "docker context use default"
             }
         }
         stage("build") {
