@@ -1,16 +1,18 @@
-
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS base
+FROM mcr.microsoft.com/dotnet/aspnet:3.1 AS base
 WORKDIR /app
 
-COPY *.csproj .
+FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
+WORKDIR /src
+COPY ["AppOne/AppOne.csproj", "AppOne/"]
+RUN dotnet restore "AppOne/AppOne.csproj"
+COPY . .
+WORKDIR "/src/AppOne"
+RUN dotnet build "AppOne.csproj" -c Release -o /app/build
 
-RUN dotnet restore
+FROM build AS publish
+RUN dotnet publish "AppOne.csproj" -c Release -o /app/publish
 
-COPY . ./
-
-RUN dotnet publish --no-restore -c Release -o out
-
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
+FROM base AS final
 WORKDIR /app
-COPY --from=base /app/out .
+COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "AppOne.dll"]
