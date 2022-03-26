@@ -3,10 +3,10 @@ WORKDIR /app
 
 FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
 WORKDIR /src
-COPY ["AppOne/AppOne.csproj", "AppOne/"]
-RUN dotnet restore "AppOne/AppOne.csproj"
+COPY . ./
+RUN dotnet restore "AppOne.csproj"
 COPY . .
-WORKDIR "/src/AppOne"
+WORKDIR "/src"
 RUN dotnet build "AppOne.csproj" -c Release -o /app/build
 
 FROM build AS publish
