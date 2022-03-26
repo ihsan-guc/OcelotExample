@@ -4,7 +4,7 @@ services:
   apptwo:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=http://+:5002
+      #- ASPNETCORE_URLS=http://+:5002
     ports:
       - "5002:80"
     volumes:
@@ -13,7 +13,7 @@ services:
   appone:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=http://+:5001
+      #- ASPNETCORE_URLS=http://+:5001
     ports:
       - "5001:80"
     volumes:
