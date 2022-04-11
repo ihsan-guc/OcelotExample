@@ -26,7 +26,11 @@ namespace AppOne
         {
             services.AddControllers();
             services.AddMemoryCache();
-            
+            services.AddHttpsRedirection(options =>
+            {
+
+                options.HttpsPort = 5051;
+            });
             services.AddAuthentication(option =>
             {
                 option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -49,6 +53,7 @@ namespace AppOne
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API One", Version = "v1" });
             });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,11 +63,6 @@ namespace AppOne
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseForwardedHeaders(new ForwardedHeadersOptions
-            {
-                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
-            });
-
             app.UseSwagger();
             app.UseSwaggerUI(p =>
             {
