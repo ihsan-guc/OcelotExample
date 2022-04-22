@@ -26,7 +26,7 @@ namespace AppOne.Controllers
         public IEnumerable<WeatherForecast> Get()
         {
             var rng = new Random();
-            return Enumerable.Range(1, 45).Select(index => new WeatherForecast
+            return Enumerable.Range(1, 10).Select(index => new WeatherForecast
             {
                 Id = index,
                 Date = DateTime.Now.AddDays(index),
