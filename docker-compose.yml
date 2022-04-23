@@ -1,25 +1,31 @@
 version: '3.4'
 
 services:
+  appocelot:
+    image: ${DOCKER_REGISTRY-}appocelot
+    build:
+      context: .
+      dockerfile: App.Ocelot/Dockerfile
   apptwo:
     image: ${DOCKER_REGISTRY-}apptwo
     build:
       context: .
       dockerfile: AppTwo/Dockerfile
+
   appone:
     image: ${DOCKER_REGISTRY-}appone
     build:
       context: .
       dockerfile: AppOne/Dockerfile
-  portainer:
-    image: portainer/portainer-ce
-    restart: always
-    container_name: portainer
-    ports:
-      - "9000:9000"
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - portainer_data:/data
+#  portainer:
+#    image: portainer/portainer-ce
+#    restart: always
+#    container_name: portainer
+#    ports:
+#      - "9000:9000"
+#    volumes:
+#      - /var/run/docker.sock:/var/run/docker.sock
+#      - portainer_data:/data
 
-volumes:
-  portainer_data:
+#volumes:
+#  portainer_data:

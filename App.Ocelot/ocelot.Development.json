@@ -2,11 +2,11 @@
   "Routes": [
     {
       "DownstreamPathTemplate": "/user/GetUserList",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 5001
+          "Host": "appone",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/appone/user/userList",
@@ -15,11 +15,11 @@
     },
     {
       "DownstreamPathTemplate": "/user/AddUser",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 5001
+          "Host": "appone",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/appone/user/AddUser",
@@ -28,11 +28,11 @@
     },
     {
       "DownstreamPathTemplate": "/user/GetUser",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 5001
+          "Host": "appone",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/appone/user/GetUser/{id}",
@@ -41,11 +41,11 @@
     },
     {
       "DownstreamPathTemplate": "/WeatherForecast",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 5011
+          "Host": "apptwo",
+          "Port": 80
         }
       ],
       "UpstreamPathTemplate": "/apptwo/WeatherForecast",
@@ -60,7 +60,7 @@
         {
           "Name": "App One Api",
           "Version": "v1",
-          "Url": "https://localhost:5001/swagger/v1/swagger.json"
+          "Url": "http://appone/swagger/v1/swagger.json"
         }
       ]
     },
@@ -70,12 +70,12 @@
         {
           "Name": "App Two Api",
           "Version": "v1",
-          "Url": "https://localhost:5011/swagger/v1/swagger.json"
+          "Url": "http://apptwo/swagger/v1/swagger.json"
         }
       ]
     }
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "https://localhost:4001"
+    "BaseUrl": "http://appocelot"
   }
 }
