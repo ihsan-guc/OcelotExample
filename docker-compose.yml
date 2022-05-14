@@ -16,15 +16,3 @@ services:
     build:
       context: .
       dockerfile: AppOne/Dockerfile
-#  portainer:
-#    image: portainer/portainer-ce
-#    restart: always
-#    container_name: portainer
-#    ports:
-#      - "9000:9000"
-#    volumes:
-#      - /var/run/docker.sock:/var/run/docker.sock
-#      - portainer_data:/data
-
-#volumes:
-#  portainer_data:
