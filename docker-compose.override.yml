@@ -9,14 +9,6 @@ services:
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
-    deploy:
-     replicas: 1
-     restart_policy:
-      max_attempts: 3
-      condition: on-failure
-     placement:
-      constraints:
-        - node.role == "worker"
   apptwo:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
@@ -25,14 +17,6 @@ services:
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
-    deploy:
-     replicas: 1
-     restart_policy:
-      max_attempts: 3
-      condition: on-failure
-     placement:
-      constraints:
-        - node.role == "worker"
   appone:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
@@ -41,11 +25,3 @@ services:
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
-    deploy:
-     replicas: 1
-     restart_policy:
-      max_attempts: 3
-      condition: on-failure
-     placement:
-      constraints:
-        - node.role == "worker"
