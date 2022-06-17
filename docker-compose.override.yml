@@ -11,6 +11,12 @@ services:
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
     deploy:
      replicas: 1
+     restart_policy:
+      max_attempts: 3
+      condition: on-failure
+     placement:
+      constraints:
+        - node.role == "worker"
   apptwo:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
@@ -21,6 +27,9 @@ services:
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
     deploy:
      replicas: 1
+     restart_policy:
+      max_attempts: 3
+      condition: on-failure
      placement:
       constraints:
         - node.role == "worker"
@@ -34,6 +43,9 @@ services:
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
     deploy:
      replicas: 1
+     restart_policy:
+      max_attempts: 3
+      condition: on-failure
      placement:
       constraints:
         - node.role == "worker"
