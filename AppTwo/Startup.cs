@@ -39,7 +39,7 @@ namespace AppTwo
                 p.SwaggerEndpoint("/swagger/v1/swagger.json", "API Two V1");
                 p.DefaultModelsExpandDepth(-1); // Model detaylarının gösterilmesini istemiyoruz.
             });
-            app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
 
             app.UseRouting();
 
