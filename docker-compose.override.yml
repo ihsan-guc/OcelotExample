@@ -6,22 +6,30 @@ services:
       - "5000:80"
     deploy:
      replicas: 1
+     restart_policy:
+      max_attempts: 1
+      condition: on-failure
      placement:
-      constraints:
-       - node.role == worker
+      constraints: [node.role == worker]
+
   apptwo:
     ports:
       - "5002:5002"
     deploy:
      replicas: 1
+     restart_policy:
+      max_attempts: 1
+      condition: on-failure
      placement:
-      constraints:
-       - node.role == worker
+      constraints: [node.role == worker]
   appone:
     ports:
       - "5001:5001"
     deploy:
      replicas: 1
+     restart_policy:
+      max_attempts: 1
+      condition: on-failure
      placement:
       constraints:
        - node.role == worker
