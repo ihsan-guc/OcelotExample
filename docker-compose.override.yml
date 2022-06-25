@@ -15,8 +15,7 @@ services:
       max_attempts: 3
       condition: on-failure
      placement:
-      constraints:
-        - node.role == "worker"
+      constraints: [node.role == worker]
   apptwo:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
@@ -31,8 +30,7 @@ services:
       max_attempts: 3
       condition: on-failure
      placement:
-      constraints:
-        - node.role == "worker"
+      constraints: [node.role == worker]
   appone:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
@@ -47,5 +45,5 @@ services:
       max_attempts: 3
       condition: on-failure
      placement:
-      constraints:
-        - node.role == "worker"
+      constraints: [node.role == worker]
+
