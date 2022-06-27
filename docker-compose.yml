@@ -6,6 +6,8 @@ services:
     build:
       context: .
       dockerfile: App.Ocelot/Dockerfile
+    ports:
+      - "5000:80" 
     deploy:
      replicas: 1
      restart_policy:
@@ -19,6 +21,8 @@ services:
     build:
       context: .
       dockerfile: AppTwo/Dockerfile
+    ports:
+      - "5002:5002"
     deploy:
      replicas: 1
      restart_policy:
@@ -32,6 +36,8 @@ services:
     build:
       context: .
       dockerfile: AppOne/Dockerfile
+    ports:
+      - "5001:5001"
     deploy:
      replicas: 1
      restart_policy:
