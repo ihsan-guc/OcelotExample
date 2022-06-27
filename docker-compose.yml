@@ -6,13 +6,39 @@ services:
     build:
       context: .
       dockerfile: App.Ocelot/Dockerfile
+    deploy:
+     replicas: 1
+     restart_policy:
+      max_attempts: 1
+      condition: on-failure
+     placement:
+      constraints:
+        - node.role == worker
   apptwo:
     image: ${DOCKER_REGISTRY-}apptwo
     build:
       context: .
       dockerfile: AppTwo/Dockerfile
+    deploy:
+     replicas: 1
+     restart_policy:
+      max_attempts: 1
+      condition: on-failure
+     placement:
+      constraints:
+        - node.role == worker
   appone:
     image: ${DOCKER_REGISTRY-}appone
     build:
       context: .
       dockerfile: AppOne/Dockerfile
+    deploy:
+     replicas: 1
+     restart_policy:
+      max_attempts: 1
+      condition: on-failure
+     placement:
+      constraints:
+        - node.role == worker
+    
+    
