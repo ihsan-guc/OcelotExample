@@ -2,14 +2,14 @@ version: '3.4'
 
 services:
   appocelot:
-    image: ${DOCKER_REGISTRY-}appocelot
-    build:
-      context: .
-      dockerfile: App.Ocelot/Dockerfile
+    image: nginx
+    #build:
+    #  context: .
+    #  dockerfile: App.Ocelot/Dockerfile
     ports:
       - "5000:80" 
     deploy:
-      #replicas: 1
+      replicas: 1
       restart_policy:
        max_attempts: 1
        condition: on-failure
@@ -17,14 +17,14 @@ services:
        constraints:
          - node.role == worker
   apptwo:
-    image: ${DOCKER_REGISTRY-}apptwo
-    build:
-      context: .
-      dockerfile: AppTwo/Dockerfile
+    image: nginx
+    #build:
+    #  context: .
+    #  dockerfile: AppTwo/Dockerfile
     ports:
-      - "5002:5002"
+      - "5002:80"
     deploy:
-      #replicas: 1
+      replicas: 1
       restart_policy:
        max_attempts: 1
        condition: on-failure
@@ -32,12 +32,12 @@ services:
        constraints:
          - node.role == worker
   appone:
-    image: ${DOCKER_REGISTRY-}appone
-    build:
-      context: .
-      dockerfile: AppOne/Dockerfile
+    image: nginx
+    #build:
+    #  context: .
+    #  dockerfile: AppOne/Dockerfile
     ports:
-      - "5001:5001"
+      - "5001:80"
     deploy:
       #replicas: 1
       restart_policy:
