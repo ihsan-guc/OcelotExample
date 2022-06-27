@@ -2,14 +2,16 @@ version: '3.4'
 
 services:
   appocelot:
-    image: nginx
-    #build:
-    #  context: .
-    #  dockerfile: App.Ocelot/Dockerfile
+    image: 737283/appocelot
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development    
+    build:
+      context: .
+      dockerfile: App.Ocelot/Dockerfile
     ports:
       - "5000:80" 
     deploy:
-      replicas: 1
+      #replicas: 1
       restart_policy:
        max_attempts: 1
        condition: on-failure
@@ -17,14 +19,16 @@ services:
        constraints:
          - node.role == worker
   apptwo:
-    image: nginx
-    #build:
-    #  context: .
-    #  dockerfile: AppTwo/Dockerfile
+    image: 737283/apptwo
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    build:
+      context: .
+      dockerfile: AppTwo/Dockerfile
     ports:
-      - "5002:80"
+      - "5002:5002"
     deploy:
-      replicas: 1
+      #replicas: 1
       restart_policy:
        max_attempts: 1
        condition: on-failure
@@ -32,12 +36,14 @@ services:
        constraints:
          - node.role == worker
   appone:
-    image: nginx
-    #build:
-    #  context: .
-    #  dockerfile: AppOne/Dockerfile
+    image: 737283/appone
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    build:
+      context: .
+      dockerfile: AppOne/Dockerfile
     ports:
-      - "5001:80"
+      - "5001:5001"
     deploy:
       #replicas: 1
       restart_policy:
