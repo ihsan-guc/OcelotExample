@@ -1,4 +1,5 @@
 version: '3.4'
+
 services:
   appocelot:
     image: ${DOCKER_REGISTRY-}appocelot
@@ -8,13 +9,13 @@ services:
     ports:
       - "5000:80" 
     deploy:
-      replicas: 1
+      #replicas: 1
       restart_policy:
        max_attempts: 1
        condition: on-failure
-      #placement:
-      # constraints:
-      #   - node.role == worker
+      placement:
+       constraints:
+         - node.role == worker
   apptwo:
     image: ${DOCKER_REGISTRY-}apptwo
     build:
@@ -23,13 +24,13 @@ services:
     ports:
       - "5002:5002"
     deploy:
-      replicas: 1
+      #replicas: 1
       restart_policy:
        max_attempts: 1
        condition: on-failure
-      #placement:
-      # constraints:
-      #   - node.role == worker
+      placement:
+       constraints:
+         - node.role == worker
   appone:
     image: ${DOCKER_REGISTRY-}appone
     build:
@@ -38,12 +39,12 @@ services:
     ports:
       - "5001:5001"
     deploy:
-      replicas: 1
+      #replicas: 1
       restart_policy:
        max_attempts: 1
        condition: on-failure
-      #placement:
-      # constraints:
-      #   - node.role == worker
+      placement:
+       constraints:
+         - node.role == worker
     
     
