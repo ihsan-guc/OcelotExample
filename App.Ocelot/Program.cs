@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Ocelot.Middleware;
 using System;
 
 namespace App.Ocelot
@@ -20,7 +19,7 @@ namespace App.Ocelot
                 var env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
                 config.AddJsonFile($"appsettings.json", optional: true, reloadOnChange: true);
                 config.AddJsonFile($"appsettings.{env}.json", true, true);
-                config.AddJsonFile($"ocelot.{env}.json", true, true);
+                config.AddJsonFile($"ocelot.json", false, true);
                 config.AddEnvironmentVariables();
             })
             .ConfigureWebHostDefaults(webBuilder =>

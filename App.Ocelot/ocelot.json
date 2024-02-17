@@ -1,46 +1,7 @@
 {
   "Routes": [
     {
-      "DownstreamPathTemplate": "/user/GetUserList",
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 5001
-        }
-      ],
-      "UpstreamPathTemplate": "/appone/user/userList",
-      "UpstreamHttpMethod": [ "GET" ],
-      "SwaggerKey": "appone"
-    },
-    {
-      "DownstreamPathTemplate": "/user/AddUser",
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 5001
-        }
-      ],
-      "UpstreamPathTemplate": "/appone/user/AddUser",
-      "UpstreamHttpMethod": [ "POST" ],
-      "SwaggerKey": "appone"
-    },
-    {
-      "DownstreamPathTemplate": "/user/GetUser",
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 5001
-        }
-      ],
-      "UpstreamPathTemplate": "/appone/user/GetUser/{id}",
-      "UpstreamHttpMethod": [ "GET" ],
-      "SwaggerKey": "appone"
-    },
-    {
-      "DownstreamPathTemplate": "/WeatherForecast",
+      "DownstreamPathTemplate": "/{everything}",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -48,9 +9,22 @@
           "Port": 5011
         }
       ],
-      "UpstreamPathTemplate": "/apptwo/WeatherForecast",
+      "UpstreamPathTemplate": "/apptwo/{everything}",
       "UpstreamHttpMethod": [ "GET" ],
       "SwaggerKey": "apptwo"
+    },
+    {
+      "DownstreamPathTemplate": "/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5001
+        }
+      ],
+      "UpstreamPathTemplate": "/appone/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "DELETE", "PUT" ],
+      "SwaggerKey": "appone"
     }
   ],
   "SwaggerEndPoints": [

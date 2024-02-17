@@ -1,7 +1,7 @@
 ﻿{
   "Routes": [
     {
-      "DownstreamPathTemplate": "/user/GetUserList",
+      "DownstreamPathTemplate": "/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -9,38 +9,12 @@
           "Port": 80
         }
       ],
-      "UpstreamPathTemplate": "/appone/user/userList",
-      "UpstreamHttpMethod": [ "GET" ],
+      "UpstreamPathTemplate": "/appone/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "DELETE", "PUT" ],
       "SwaggerKey": "appone"
     },
     {
-      "DownstreamPathTemplate": "/user/AddUser",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "appone",
-          "Port": 80
-        }
-      ],
-      "UpstreamPathTemplate": "/appone/user/AddUser",
-      "UpstreamHttpMethod": [ "POST" ],
-      "SwaggerKey": "appone"
-    },
-    {
-      "DownstreamPathTemplate": "/user/GetUser",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "appone",
-          "Port": 80
-        }
-      ],
-      "UpstreamPathTemplate": "/appone/user/GetUser/{id}",
-      "UpstreamHttpMethod": [ "GET" ],
-      "SwaggerKey": "appone"
-    },
-    {
-      "DownstreamPathTemplate": "/WeatherForecast",
+      "DownstreamPathTemplate": "/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -48,8 +22,8 @@
           "Port": 80
         }
       ],
-      "UpstreamPathTemplate": "/apptwo/WeatherForecast",
-      "UpstreamHttpMethod": [ "GET" ],
+      "UpstreamPathTemplate": "/apptwo/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "DELETE", "PUT" ],
       "SwaggerKey": "apptwo"
     }
   ],
